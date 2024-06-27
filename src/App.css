@@ -1,38 +1,103 @@
-.App {
+body {
+  box-sizing: border-box;
+  background-color: #17181f;
+  color: #aaa;
+}
+
+.main {
+  max-width: 300px;
+  margin: 20px auto;
+}
+
+form {
+  display: flex;
+  border: 3px solid #30312D;
+  border-radius: 10px;
+  padding: 7px;
+}
+
+.task {
+  background-color: #30313D;
+  border-radius: 7px;
+  margin-top: 10px;
+  padding: 5px 9px;
+  display: flex;
+  align-items: center;
+  transition: opacity .3s linear;
+}
+
+form input[type="text"] {
+  background: none;
+  color: #aaa;
+  border: 0;
+  padding: 0px 8px;
+  width: 100%;
+  display: block;
+}
+
+form button {
+  background-color: #61DAFB;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.taskform button {
+  border-radius: 6px;
+}
+
+div.task svg {
+  height: 20px;
+  margin-right: 12px;
+  fill: #61DAFB;
+}
+
+div.task.done {
+  opacity: 0.3;
+  /* text-decoration: line-through; */
+}
+
+div.task span {
+  position: relative;
+}
+
+div.task-name, div.task form{
+  flex-grow: 1;
+}
+
+div.task span:before{
+  content: '';
+  display: flex;
+  width: 0px;
+  height: 1px;
+  background-color: #ddd;
+  top: 10px;
+  position: absolute;
+  transition: width 0.2s linear;
+}
+
+div.task.done span::before{
+  width: 100%;
+}
+
+h1, h2 {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+button.trash {
+  background: none;
+  border: none;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+button.trash svg{
+  height: 16px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+div.task input {
+  border: 2px solid #555;
+  padding: 5px;
+  border-radius: 5px;
 }
