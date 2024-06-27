@@ -20,7 +20,8 @@ function App() {
   const onAdd = (name) => {
     console.log("setting")
     setTasks((prev)=>{
-      return [...prev, {name: name, done: false}]
+      const newTasks = prev ? [ ...prev, {name: name, done: false}] : [{name: name, done: false}]
+      return newTasks;
     })
     console.log("tasks", tasks);
   }
@@ -33,8 +34,8 @@ function App() {
     })
   }
 
-  const taskComplete = tasks.filter(task => task.done).length
-  const totalTasks = tasks.length;
+  const taskComplete = tasks?.filter(task => task.done).length
+  const totalTasks = tasks?.length;
 
   const getMessage = () => {
     let percentage = (taskComplete/totalTasks)*100;
@@ -61,7 +62,7 @@ function App() {
 
   return (
     <div className="main">
-    <h1>{taskComplete}/{totalTasks} complete</h1>
+    <h1>{taskComplete || 0}/{totalTasks || 0} complete</h1>
     <h2>{getMessage()}</h2>
       <TaskForm addTask={onAdd}/>
       {
